@@ -201,7 +201,7 @@ const Work = () => {
           </div>
 
           {/* Desktop Layout: left composite + right vertical */}
-          <div className="hidden md:grid w-full max-w-[940px] mx-auto gap-8 items-stretch grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+          <div className="hidden md:grid w-full max-w-[1100px] mx-auto gap-8 items-stretch grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)]">
             <div className="min-w-0 flex flex-col gap-8">
               {renderProjectCard(2, 'text-xs tracking-widest font-medium uppercase mb-1', 'text-xs text-gray-500')}
               <div className="flex gap-8">
@@ -224,7 +224,7 @@ const Work = () => {
                   onFocus={() => playVideo(vibrantecProject.id)}
                   onBlur={() => stopVideo(vibrantecProject.id)}
                 >
-                  <div className="w-auto h-full max-w-full aspect-9/16 mx-auto relative overflow-hidden mb-4">
+                  <div className="w-full aspect-9/16 relative overflow-hidden mb-4">
                     <img
                       src={vibrantecProject.image}
                       alt={vibrantecProject.title}
