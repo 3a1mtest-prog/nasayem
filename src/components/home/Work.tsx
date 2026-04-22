@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useTranslation } from 'react-i18next';
 import Container from '../Container';
+
 import vibrantecsImage from '../../assets/Grid/vibrantecs.png';
 import vibrantecsVideo from '../../assets/Grid/vibrantecs.mp4';
 import nasayemImage from '../../assets/Grid/nasayem.png';
@@ -12,7 +13,7 @@ import newaVideo from '../../assets/Grid/newa.mp4';
 import almorganImage from '../../assets/Grid/almorgan.png';
 import almorganVideo from '../../assets/Grid/almorgan.mp4';
 
-// Complete border gradient — same rose-gold palette, covers all 4 edges
+// Exact border gradient from the reference image (rose‑gold)
 const BORDER_GRADIENT = 'linear-gradient(135deg, #a38a84, #5e4f4b)';
 
 const Work = () => {
@@ -25,10 +26,8 @@ const Work = () => {
       id: 1,
       title: 'VIBRANTEC',
       desc: t('home.workProject1Desc'),
-      area: 'vibrantec',
       aspect: 'aspect-9/16',
       mobileAspect: 'aspect-9/16',
-      gradient: BORDER_GRADIENT,
       image: vibrantecsImage,
       video: vibrantecsVideo,
     },
@@ -36,10 +35,8 @@ const Work = () => {
       id: 2,
       title: 'NASAYEM STUDIO',
       desc: t('home.workProject2Desc'),
-      area: 'nasayem',
       aspect: 'aspect-16/9',
       mobileAspect: 'aspect-16/9',
-      gradient: BORDER_GRADIENT,
       image: nasayemImage,
       video: nasayemVideo,
     },
@@ -47,10 +44,8 @@ const Work = () => {
       id: 3,
       title: 'NEWA',
       desc: t('home.workProject3Desc'),
-      area: 'newa',
       aspect: 'aspect-square',
       mobileAspect: 'aspect-square',
-      gradient: BORDER_GRADIENT,
       image: newaImage,
       video: newaVideo,
     },
@@ -58,10 +53,8 @@ const Work = () => {
       id: 4,
       title: 'AL-MORGAN',
       desc: t('home.workProject4Desc'),
-      area: 'almorgan',
       aspect: 'aspect-square',
       mobileAspect: 'aspect-square',
-      gradient: BORDER_GRADIENT,
       image: almorganImage,
       video: almorganVideo,
     },
@@ -81,52 +74,57 @@ const Work = () => {
     video.currentTime = 0;
   };
 
-  const renderProjectCard = (projectId: number, titleClass: string, descClass: string) => {
-    const project = projects.find((item) => item.id === projectId);
-    if (!project) return null;
+  // Shared border overlay component for consistency
+  const BorderOverlay = () => (
+    <div
+      className="absolute inset-0 z-10 pointer-events-none p-0.5 px transition-all duration-500 group-hover:brightness-150"
+      style={{
+        background: 'linear-gradient(135deg, #a38a84, transparent 40%, transparent 60%, #5e4f4b)',
+        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+        WebkitMaskComposite: 'xor',
+        maskComposite: 'exclude',
+      }}
+    />
+  );
 
-    return (
-      <div
-        key={project.id}
-        data-work-item
-        className="group cursor-pointer flex flex-col"
-        onMouseEnter={() => playVideo(project.id)}
-        onMouseLeave={() => stopVideo(project.id)}
-        onFocus={() => playVideo(project.id)}
-        onBlur={() => stopVideo(project.id)}
-      >
-        <div className={`w-full ${project.aspect} relative overflow-hidden mb-4`}>
-          <img src={project.image} alt={project.title} className="absolute inset-0 h-full w-full object-cover" />
-          <video
-            ref={(el) => {
-              videoRefs.current[project.id] = el;
-            }}
-            src={project.video}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
-          />
-          {/* Border overlay — p-px + WebkitMask trick keeps only the 1px frame visible */}
-          <div
-            className="absolute inset-0 z-10 pointer-events-none p-px transition-all duration-500 group-hover:brightness-150"
-            style={{
-              background: project.gradient,
-              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-              WebkitMaskComposite: 'xor',
-              maskComposite: 'exclude',
-            }}
-          />
-          <div className="absolute inset-0 bg-linear-to-br from-[#8a948c]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        </div>
-        <h4 className={titleClass}>{project.title}</h4>
-        <p className={descClass}>{project.desc}</p>
+  // Render a single project card (used on both mobile & desktop)
+  const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
+    <div
+      key={project.id}
+      data-work-item
+      className="group cursor-pointer flex flex-col"
+      onMouseEnter={() => playVideo(project.id)}
+      onMouseLeave={() => stopVideo(project.id)}
+      onFocus={() => playVideo(project.id)}
+      onBlur={() => stopVideo(project.id)}
+    >
+      <div className={`w-full ${project.aspect} relative overflow-hidden mb-4`}>
+        {/* Static image */}
+        <img
+          src={project.image}
+          alt={project.title}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        {/* Video on hover */}
+        <video
+          ref={(el) => {
+            videoRefs.current[project.id] = el;
+          }}
+          src={project.video}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
+        />
+        {/* Identical border overlay for both states */}
+        <BorderOverlay />
+        <div className="absolute inset-0 bg-linear-to-br from-[#8a948c]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
-    );
-  };
-
-  const vibrantecProject = projects.find((item) => item.id === 1);
+      <h4 className="text-[10px] tracking-widest font-medium uppercase mb-1">{project.title}</h4>
+      <p className="text-[10px] text-gray-500">{project.desc}</p>
+    </div>
+  );
 
   useGSAP(
     () => {
@@ -149,6 +147,11 @@ const Work = () => {
     { scope: sectionRef },
   );
 
+  const vibrantecProject = projects[0];
+  const nasayemProject = projects[1];
+  const almorganProject = projects[3];
+  const newaProject = projects[2];
+
   return (
     <section ref={sectionRef} id="work" className="py-24 md:py-32 relative border-t border-[#8a948c]/10">
       <Container>
@@ -158,105 +161,32 @@ const Work = () => {
         </div>
 
         <div className="w-full">
-          {/* Mobile Layout: Single column */}
+          {/* Mobile Layout: single column */}
           <div className="md:hidden flex flex-col gap-8">
             {projects.map((project) => (
-              <div
-                key={project.id}
-                data-work-item
-                className="group cursor-pointer flex flex-col"
-                onMouseEnter={() => playVideo(project.id)}
-                onMouseLeave={() => stopVideo(project.id)}
-                onFocus={() => playVideo(project.id)}
-                onBlur={() => stopVideo(project.id)}
-              >
-                <div className={`w-full ${project.mobileAspect} relative overflow-hidden mb-4`}>
-                  <img src={project.image} alt={project.title} className="absolute inset-0 h-full w-full object-cover" />
-                  <video
-                    ref={(el) => {
-                      videoRefs.current[project.id] = el;
-                    }}
-                    src={project.video}
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
-                  />
-                  <div
-                    className="absolute inset-0 z-10 pointer-events-none p-px transition-all duration-500 group-hover:brightness-150"
-                    style={{
-                      background: project.gradient,
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      maskComposite: 'exclude',
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-linear-to-br from-[#8a948c]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <h4 className="text-[10px] tracking-widest font-medium uppercase mb-1">{project.title}</h4>
-                <p className="text-[10px] text-gray-500">{project.desc}</p>
-              </div>
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
 
-          {/* Desktop Layout: left composite + right vertical */}
-          <div className="hidden md:grid w-full max-w-[1100px] mx-auto gap-8 items-stretch grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)]">
+          {/* Desktop Layout: left composite (nasayem + bottom row) + right (vibrantec) */}
+          <div className="hidden md:grid w-full max-w-[1100px] mx-auto gap-8 items-stretch grid-cols-[minmax(0,2fr)_minmax(0,1.333fr)]">
             <div className="min-w-0 flex flex-col gap-8">
-              {renderProjectCard(2, 'text-xs tracking-widest font-medium uppercase mb-1', 'text-xs text-gray-500')}
+              {/* Nasayem (tall) */}
+              <ProjectCard project={nasayemProject} />
               <div className="flex gap-8">
                 <div className="flex-1 min-w-0">
-                  {renderProjectCard(4, 'text-xs tracking-widest font-medium uppercase mb-1', 'text-xs text-gray-500')}
+                  <ProjectCard project={almorganProject} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  {renderProjectCard(3, 'text-xs tracking-widest font-medium uppercase mb-1', 'text-xs text-gray-500')}
+                  <ProjectCard project={newaProject} />
                 </div>
               </div>
             </div>
 
-            {vibrantecProject && (
-              <div className="min-w-0 self-stretch">
-                <div
-                  data-work-item
-                  className="group cursor-pointer h-full grid grid-rows-[1fr_auto_auto]"
-                  onMouseEnter={() => playVideo(vibrantecProject.id)}
-                  onMouseLeave={() => stopVideo(vibrantecProject.id)}
-                  onFocus={() => playVideo(vibrantecProject.id)}
-                  onBlur={() => stopVideo(vibrantecProject.id)}
-                >
-                  <div className="w-full aspect-9/16 relative overflow-hidden mb-4">
-                    <img
-                      src={vibrantecProject.image}
-                      alt={vibrantecProject.title}
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <video
-                      ref={(el) => {
-                        videoRefs.current[vibrantecProject.id] = el;
-                      }}
-                      src={vibrantecProject.video}
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
-                    />
-                    <div
-                      className="absolute inset-0 z-10 pointer-events-none p-px transition-all duration-500 group-hover:brightness-150"
-                      style={{
-                        background: vibrantecProject.gradient,
-                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                        WebkitMaskComposite: 'xor',
-                        maskComposite: 'exclude',
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-linear-to-br from-[#8a948c]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  <h4 className="text-xs tracking-widest font-medium uppercase mb-1">{vibrantecProject.title}</h4>
-                  <p className="text-xs text-gray-500">{vibrantecProject.desc}</p>
-                </div>
-              </div>
-            )}
+            {/* Vibrantec (right column) */}
+            <div className="min-w-0 flex-1 self-stretch">
+              <ProjectCard project={vibrantecProject} />
+            </div>
           </div>
         </div>
       </Container>
