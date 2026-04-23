@@ -59,7 +59,7 @@ const About = () => {
         autoAlpha: 1,
         y: 0,
         filter: "blur(0px)",
-        duration: 1.6,
+        duration: 1.4,
         ease: "power3.out",
       })
         // النقاط تنبثق بعدها بنعومة
