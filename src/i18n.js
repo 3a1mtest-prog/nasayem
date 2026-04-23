@@ -9,7 +9,7 @@ const resources = {
         philosophy: "Philosophy",
         services: "Services",
         about: "About",
-        process: "Process",
+        SCOPE: "SCOPE",
         blog: "Blog",
         downloadResume: "download resume",
         language: "Language",
@@ -78,8 +78,8 @@ const resources = {
       portfolio: {
         heading: "Selected Identities",
       },
-      services: {
-        heading: "Services",
+      SCOPE: {
+        heading: "SCOPE",
         viewDetails: "CASE STUDY",
       },
       about: {
