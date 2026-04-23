@@ -80,7 +80,7 @@ const resources = {
       },
       services: {
         heading: "Services",
-        viewDetails: "VIEW DETAILS",
+        viewDetails: "CASE STUDY",
       },
       about: {
         heading: "About",
@@ -122,9 +122,9 @@ const resources = {
         color: "Color",
       },
       servicesData: {
-        logoTitle: "LOGO DESIGN",
+        logoTitle: "IDENTITY CORE",
         logoDesc: "Crafting iconic visual identities that define your brands essence and leave a lasting impression on your audience.",
-        visualTitle: "VISUAL IDENTITY",
+        visualTitle: "SYSTEMIC ARCHITECTRUE",
         visualDesc: "Developing cohesive visual systems that communicate your values across all platforms with clarity and elegance.",
         strategyTitle: "BRAND STRATEGY",
         strategyDesc: "Building powerful brand strategies that position your business for success in a competitive global landscape.",
