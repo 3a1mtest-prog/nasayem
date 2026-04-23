@@ -6,11 +6,11 @@ const resources = {
     translation: {
       nav: {
         work: "Work",
-        philosophy: "Philosophy",
-        services: "Services",
+        philosophy: "IDENTITY",
+        services: "SCOPE",
         about: "About",
-        Services: "Services",
-        blog: "Blog",
+        process: "Process",
+        blog: "PRAXIS",
         downloadResume: "download resume",
         language: "Language",
       },
@@ -78,8 +78,8 @@ const resources = {
       portfolio: {
         heading: "Selected Identities",
       },
-      Services: {
-        heading: "Services",
+      services: {
+        heading: "SCOPE",
         viewDetails: "CASE STUDY",
       },
       about: {
@@ -103,7 +103,7 @@ const resources = {
       },
       blog: {
         journal: "Journal",
-        title: "The Studio Blog",
+        title: "The Studio PRAXIS",
         intro:
           "Notes on brand physics, visual systems, and the craft behind identities that feel inevitable.",
         all: "All",
