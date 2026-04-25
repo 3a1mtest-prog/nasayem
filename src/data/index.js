@@ -293,7 +293,7 @@ export const blogs = [
     date: "Feb 12, 2026",
     readTime: "7 min read",
     title: {
-      en: "Structural Logic: Niwa Decoration",
+      en: "Structural Logic: Newa Decoration",
       ar: "السبب وراء كل خط: نيوا للديكور",
     },
     excerpt: {
