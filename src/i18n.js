@@ -114,8 +114,8 @@ const resources = {
         notFoundBody: "The page you are looking for does not exist.",
       },
       categories: {
-        branding: "Branding",
-        uiux: "UI/UX",
+        branding: "VISUAL NARRATIVES",
+        uiux: "POINT OF ORIGIN",
         typography: "Typography",
         packaging: "Packaging",
         process: "Process",
@@ -265,8 +265,8 @@ const resources = {
         notFoundBody: "الصفحة التي تبحث عنها غير موجودة.",
       },
       categories: {
-        branding: "العلامة",
-        uiux: "واجهة وتجربة",
+        branding: "روايات مصممة",
+        uiux: "رحلة تصميم",
         typography: "الطباعة",
         packaging: "التغليف",
         process: "العملية",
