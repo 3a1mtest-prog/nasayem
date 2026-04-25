@@ -155,7 +155,7 @@ const Work = () => {
   return (
     <section ref={sectionRef} id="work" className="py-24 md:py-32 relative border-t border-[#8a948c]/10">
       <Container>
-        <div className="mb-10 md:mb-20 md:w-1/2 md:ml-auto">
+        <div className="mb-10 md:mb-20 md:w-1/2 md:ml-auto text-right">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">{t('home.workHeading')}</h2>
           <p className="text-sm md:text-base text-gray-400 font-light leading-relaxed">{t('home.workBody')}</p>
         </div>
