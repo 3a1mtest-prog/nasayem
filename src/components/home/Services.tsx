@@ -86,7 +86,7 @@ const Services = () => {
       <Container>
         <div
           data-services-animate
-          className="relative z-10 mb-16 md:mb-24 md:w-1/2 md:ml-auto text-end"
+          className="relative z-10 mb-16 md:mb-24 md:w-1/2 md:ml-auto text-start"
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
             {t("services.heading")}
