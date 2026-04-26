@@ -116,7 +116,7 @@ const resources = {
       categories: {
         branding: "VISUAL NARRATIVES",
         uiux: "POINT OF ORIGIN",
-        typography: "Typography",
+        typography: "STRUCTURAL LOGIC",
         packaging: "Packaging",
         process: "Process",
         color: "Color",
