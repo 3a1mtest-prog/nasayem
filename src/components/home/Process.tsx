@@ -72,7 +72,7 @@ const Process = () => {
       className="py-24 md:py-32 relative border-t border-text/10 bg-dark-bg"
     >
       <Container>
-        <h2 className="text-3xl md:text-4xl font-display font-bold mb-16 md:mb-32 text-center tracking-widest text-end">
+        <h2 className="text-3xl md:text-4xl font-display font-bold mb-16 md:mb-32 text-center tracking-widest pl-50">
           {t('process.heading')}
         </h2>
 
