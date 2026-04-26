@@ -297,8 +297,8 @@ export const blogs = [
     image:
       "https://g.top4top.io/p_3767gvy1y1.png",
     imageCaption: {
-      en: "Caption for blog 3 — edit this text.",
-      ar: "كابشن المقال الثالث — بدّل هذا الكلام.",
+      en: "Architecture is the art of space. Visual identity is the art of precision.",
+      ar: "العمارة هي فن المساحة. الهوية البصرية هي فن الدقة",
     },
     author: "Nasaeym Studio",
   },
@@ -343,8 +343,8 @@ export const blogs = [
     image:
       "https://a.top4top.io/p_3767mfayr1.png",
     imageCaption: {
-      en: "Caption for blog 15 — edit this text.",
-      ar: "كابشن المقال 15 — بدّل هذا الكلام.",
+      en: "Decoration is not about covering spaces, but about redefining them.",
+      ar: "الديكور ليس تغطية للمساحات  بل هو اعادة تعريفها",
     },
     author: "Nasaeym Studio",
   },
