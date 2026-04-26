@@ -20,7 +20,7 @@ export default function Footer() {
               BEHANCE
             </a>
             <a
-              href="mailto:nasayemmohmmed@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&to=nasayemmohmmed@gmail.com"
               className="hover:text-rose-gold transition-colors underline-offset-4 hover:underline"
             >
               EMAIL
