@@ -267,7 +267,7 @@ const resources = {
       categories: {
         branding: "روايات مصممة",
         uiux: "رحلة تصميم",
-        typography: "الطباعة",
+        typography: "المنطق الهيكلي",
         packaging: "التغليف",
         process: "العملية",
         color: "الألوان",
