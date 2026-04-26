@@ -176,6 +176,10 @@ export const blogs = [
       ],
     },
     image: nasayemInsightImg,
+    imageCaption: {
+      en: "Engineering the Soul: where the ruler's precision meets the fluidity of meaning — to reshape the boundaries of visual perception.",
+      ar: "هندسة الروح: حيث تلتقي حدة المسطرة بانسيابيـــة المعنى لإعـــاد تشكيـــل حـــدود الإدراك المرني",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -209,6 +213,10 @@ export const blogs = [
       ],
     },
     image: vibrantecsInsightImg,
+    imageCaption: {
+      en: "This is how Vibrantecs was born — and from it I learned that true beauty is that which is born from hardship to become a system that breathes. Since that moment, I vowed never to give my clients mere logos, but identities that possess a soul and an unbreakable gravity.",
+      ar: "هكذا ولدت فـايبرانتكس ومنها تعلمت أن الجمال الحقيقي هو ذلك الذي يولد من رحم القسوة ليصبح نظاماً يتنفس. ومنذ تلك اللحظة، عاهـــدت نفسي ألا أمنح عمـــلاني مجرد شعارات، بل هويات تملك روحاً، وجاذبية لا تنكسر",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -249,6 +257,10 @@ export const blogs = [
     },
     image:
       "https://i.top4top.io/p_3767t80k31.png",
+    imageCaption: {
+      en: "The Design Journey: not a search for form, but an arrival at meaning — and every small decision shapes the result.",
+      ar: "رحلة التصميم: ليست بحثاً عن شكل بل وصولاً لمعنى وكل قرار صغيـر يصنع النتيجـــة",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -284,6 +296,10 @@ export const blogs = [
     },
     image:
       "https://g.top4top.io/p_3767gvy1y1.png",
+    imageCaption: {
+      en: "Caption for blog 3 — edit this text.",
+      ar: "كابشن المقال الثالث — بدّل هذا الكلام.",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -293,7 +309,7 @@ export const blogs = [
     date: "Feb 12, 2026",
     readTime: "7 min read",
     title: {
-      en: "Structural Logic: Newa Decoration",
+      en: "Structural Logic: Niwa Decoration",
       ar: "السبب وراء كل خط: نيوا للديكور",
     },
     excerpt: {
@@ -326,6 +342,10 @@ export const blogs = [
     },
     image:
       "https://a.top4top.io/p_3767mfayr1.png",
+    imageCaption: {
+      en: "Caption for blog 15 — edit this text.",
+      ar: "كابشن المقال 15 — بدّل هذا الكلام.",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -358,6 +378,10 @@ export const blogs = [
     },
     image:
       "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1400&auto=format&fit=crop",
+    imageCaption: {
+      en: "Caption for blog 4 — edit this text.",
+      ar: "كابشن المقال الرابع — بدّل هذا الكلام.",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -390,6 +414,10 @@ export const blogs = [
     },
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop",
+    imageCaption: {
+      en: "Caption for blog 5 — edit this text.",
+      ar: "كابشن المقال الخامس — بدّل هذا الكلام.",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -436,6 +464,10 @@ export const blogs = [
     },
     image:
       "https://g.top4top.io/p_3767fwjah1.png",
+    imageCaption: {
+      en: "We learned from Kayan that if we want to leave a mark on this world, we should not seek hardness, but rather “clarity.” Landmarks shaped by light do not leave a scar on the face of the earth; instead, they leave their imprint in the eyes of viewers and the hearts of passersby.",
+      ar: "لقد علمنا اننا اذا اردنا ان نترك اثرا في هذا العالم فلايجب ان نبحث عن الصلابة بل عن الوضوح فالمعالم التي تنحت بالضوء لا تترك جرحا في وجه الارض بل تترك بصمتها في خدمات العيون وفلوب العابرين  ",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -468,6 +500,10 @@ export const blogs = [
     },
     image:
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1400&auto=format&fit=crop",
+    imageCaption: {
+      en: "Caption for blog 7 — edit this text.",
+      ar: "كابشن المقال السابع — بدّل هذا الكلام.",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -508,6 +544,10 @@ export const blogs = [
     },
     image:
       "https://b.top4top.io/p_3767iocqf1.png",
+    imageCaption: {
+      en: "Simplicity is not easy... it is honest.",
+      ar: "البساطة ليست سهلة... بل صادقة",
+    },
     author: "Nasaeym Studio",
   },
   {
@@ -548,6 +588,10 @@ export const blogs = [
     },
     image:
       "https://d.top4top.io/p_3767oex6l1.png",
+    imageCaption: {
+      en: "Creativity is not forced... it is discovered.",
+      ar: "الإبـداع لا يُجبـــر.. بل يُكتـــشف",
+    },
     author: "Nasaeym Studio",
   },
 ];
