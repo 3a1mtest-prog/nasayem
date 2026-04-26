@@ -13,12 +13,22 @@ export default function CallToAction() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ name: '', email: '', message: '' });
+    const formData = new FormData(e.currentTarget);
+
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 3000);
+      setFormData({ name: '', email: '', message: '' });
+    }
   };
 
   return (
@@ -56,6 +66,8 @@ export default function CallToAction() {
               </h3>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 flex-1">
+                <input type="hidden" name="access_key" value="fa12bc8d-7e7a-47a1-9064-ef5e0121f49f" />
+                <input type="hidden" name="subject" value="رسالة جديدة من الموقع" />
                 {/* حقل الاسم - border كامل rounded-lg */}
                 <div className="group">
                   <input
