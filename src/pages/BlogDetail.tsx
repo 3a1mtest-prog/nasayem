@@ -221,7 +221,7 @@ export default function BlogDetail() {
         {/* ══ FINAL italic line ══ */}
         <p className="di-last mt-5 pb-16 text-[0.7rem] italic text-neutral-500 leading-relaxed">
           {isRtl
-            ? "وبيّنت للجميع أن النظام الذي يُبنى بصدق العقل.. لا يمكن لهذه العقل أبدأ"
+            ? "وبيّنت للجميع أن النظام الذي يُبنى بصدق العقل.. لا يمكن لهذه العقل هدمه أبدأ"
             : "And it became clear to all — a system built with the mind's sincerity cannot be undone by that same mind."}
         </p>
 
