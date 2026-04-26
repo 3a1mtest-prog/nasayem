@@ -196,16 +196,16 @@ export default function BlogDetail() {
           <div className="flex flex-col gap-1.5">
             <p className="text-[0.72rem] text-neutral-300 leading-relaxed">
               <span className="font-semibold text-white">
-                {isRtl ? "هندسة الروح:" : "Soul Engineering:"}
+                {isRtl ? "رحلة التصميم:" : "The design journey:"}
               </span>{" "}
               {isRtl
-                ? "حيث تلتقي حدة المسطرة المعنى"
-                : "Where the ruler's edge meets meaning"}
+                ? "رحلة التصميم ليست بحثا عن شكل بل وصولأ لمعنى وكل قرار صغير يصنع النتيجة "
+                : "The design journey is not a search for form but a reach for meaning, and every small decision shapes the outcome."}
             </p>
             <p className="text-[0.62rem] text-neutral-600 leading-relaxed">
               {isRtl
-                ? "لتهـاد تشكيل الرؤيـة خلف حـدود الإدراك المرئي"
-                : "Shaping vision beyond the limits of visual perception"}
+                ? " "
+                : " "}
             </p>
           </div>
           {/* right footer */}
