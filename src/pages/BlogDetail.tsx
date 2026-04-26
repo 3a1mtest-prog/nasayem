@@ -108,47 +108,55 @@ export default function BlogDetail() {
         {/* ══ ROW 2: image left | paragraphs + continue right ══ */}
         <div className="grid grid-cols-[38%_62%] gap-x-8 items-start">
 
-          {/* left – portrait image */}
-          <div className="di-image relative overflow-hidden rounded-lg">
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none z-10 opacity-[0.0]"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <defs>
-                <pattern id="hexPat" width="56" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
-                  <polygon
-                    points="28,2 54,16 54,44 28,58 2,44 2,16"
-                    fill="none"
-                    stroke="rgba(200,160,60,0.5)"
-                    strokeWidth="0.6"
-                  />
-                </pattern>
-                <pattern id="linePat" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
-                  <line x1="0" y1="18" x2="36" y2="18" stroke="rgba(200,160,60,0.18)" strokeWidth="0.4" />
-                  <line x1="18" y1="0" x2="18" y2="36" stroke="rgba(200,160,60,0.18)" strokeWidth="0.4" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#hexPat)" />
-              <rect width="100%" height="100%" fill="url(#linePat)" />
-            </svg>
+          {/* left – portrait image + caption */}
+          <div className="flex flex-col gap-3">
+            <div className="di-image relative overflow-hidden rounded-lg">
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none z-10 opacity-[0.0]"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <defs>
+                  <pattern id="hexPat" width="56" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
+                    <polygon
+                      points="28,2 54,16 54,44 28,58 2,44 2,16"
+                      fill="none"
+                      stroke="rgba(200,160,60,0.5)"
+                      strokeWidth="0.6"
+                    />
+                  </pattern>
+                  <pattern id="linePat" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
+                    <line x1="0" y1="18" x2="36" y2="18" stroke="rgba(200,160,60,0.18)" strokeWidth="0.4" />
+                    <line x1="18" y1="0" x2="18" y2="36" stroke="rgba(200,160,60,0.18)" strokeWidth="0.4" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#hexPat)" />
+                <rect width="100%" height="100%" fill="url(#linePat)" />
+              </svg>
 
-            <img
-              src={blog.image}
-              alt={title}
-              className="w-full h-auto object-cover block"
-            />
+              <img
+                src={blog.image}
+                alt={title}
+                className="w-full h-auto object-cover block"
+              />
 
-            {/* edge gradient toward content */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: isRtl
-                  ? "linear-gradient(to left,  rgba(0,0,0,0.25) 0%, transparent 25%)"
-                  : "linear-gradient(to right, rgba(0,0,0,0.25) 0%, transparent 25%)",
-              }}
-            />
-            <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none bg-gradient-to-t from-black to-transparent" />
+              {/* edge gradient toward content */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: isRtl
+                    ? "linear-gradient(to left,  rgba(0,0,0,0.25) 0%, transparent 25%)"
+                    : "linear-gradient(to right, rgba(0,0,0,0.25) 0%, transparent 25%)",
+                }}
+              />
+              <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none bg-gradient-to-t from-black to-transparent" />
+            </div>
+
+            {blog.imageCaption && (
+              <p className="text-[0.7rem] text-neutral-300 font-semibold leading-relaxed">
+                {getLocalized(blog.imageCaption)}
+              </p>
+            )}
           </div>
 
           {/* right – body text */}
@@ -194,26 +202,13 @@ export default function BlogDetail() {
         <div className="di-foot grid grid-cols-[38%_62%] gap-x-8 mt-10 pt-7 border-t border-white/[0.09]">
           {/* left footer */}
           <div className="flex flex-col gap-1.5">
-            <p className="text-[0.72rem] text-neutral-300 leading-relaxed">
-              <span className="font-semibold text-white">
-                {isRtl ? "رحلة التصميم:" : "The design journey:"}
-              </span>{" "}
-              {isRtl
-                ? "رحلة التصميم ليست بحثا عن شكل بل وصولأ لمعنى وكل قرار صغير يصنع النتيجة "
-                : "The design journey is not a search for form but a reach for meaning, and every small decision shapes the outcome."}
-            </p>
-            <p className="text-[0.62rem] text-neutral-600 leading-relaxed">
-              {isRtl
-                ? " "
-                : " "}
-            </p>
           </div>
           {/* right footer */}
           <div>
             <p className="text-[0.75rem] text-neutral-400 leading-relaxed text-justify">
               {isRtl
-                ? "وعندما تبدأ الخطوط بالترابط، يحدث الانفجار الذي أعيش لأجله: تتحوّل الفوضى إلى هيكل جبار. هنا تدرك أنني لا أقدم لك مجرد رسمة؛ بل أهندس لك كياناً يملك جاذبية خاصة به، لا الابدنتش الجتبريق، بالنسبة لي هي الطريقة التي أبعد بها ترتيب العالم من حول."
-                : "When the lines begin to connect, the explosion I live for happens — chaos transforms into structure. I offer not just a drawing, but an entity with its own gravity, a system that reorganises the world around it."}
+                ? " "
+                : " "}
             </p>
           </div>
         </div>
@@ -221,8 +216,8 @@ export default function BlogDetail() {
         {/* ══ FINAL italic line ══ */}
         <p className="di-last mt-5 pb-16 text-[0.7rem] italic text-neutral-500 leading-relaxed">
           {isRtl
-            ? "وبيّنت للجميع أن النظام الذي يُبنى بصدق العقل.. لا يمكن لهذه العقل هدمه أبدأ"
-            : "And it became clear to all — a system built with the mind's sincerity cannot be undone by that same mind."}
+            ? " "
+            : " "}
         </p>
 
       </div>
